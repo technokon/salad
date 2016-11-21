@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="saladApp">
+<head>
+    <meta charset="UTF-8">
+
+    <!--build:css-->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <!--endbuild-->
+
+    <!--build:js-->
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <!--endbuild-->
+
+    <title>Title</title>
+</head>
+<body ng-controller="saladController as vm">
+
+
+<h3>{{vm.title}}</h3>
+
+<table class="table table-responsive">
+    <tr>
+        <th>Title</th>
+        <th>Cost</th>
+    </tr>
+
+    <tr ng-repeat="salad in vm.salads track by $index">
+        <td>
+            <span>{{salad.title}}</span>
+        </td>
+        <td>
+            <span>{{salad.cost | currency: '$'}}</span>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
